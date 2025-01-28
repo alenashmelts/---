@@ -11,6 +11,193 @@ body{
     height: 100vh;
     min-height: 100vh;
 }
+
 body{
+    display: flex;
+    flex-direction: column;
     background-color: antiquewhite;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    font-size: 1em;
+}
+
+header,
+footer{
+    background-color: grey ;
+    min-height: 100px;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.container{
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    background-color: aqua;
+}
+
+@media (max-width:1800px){
+    .container{
+        max-width: 1600px;
+    }
+}
+@media (max-width:1600px){
+    .container{
+        max-width: 1200px;
+    }
+}
+@media (max-width:1200px){
+    .container{
+        max-width: 992spx;
+    }
+}
+
+/*----------------------------------*/
+.catalog{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.catalog__filter{
+    width: 180px;
+    background-color: blue;
+}
+
+
+.catalog__sort{
+    background-color: blue;
+min-height: 40px;
+}
+
+.catalog__content{
+    flex-grow: 1;
+}
+
+.catalog__grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap:20px
+}
+
+
+
+/*-----------------------карточка товара-------------------------------*/
+
+.catalog__card{
+    
+    width: 100%;
+    
+}
+
+.catalog__img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.catalog__price{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.price__now{
+    color: green;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.price__early{
+    color: grey;
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.price__sale{
+    color: red;
+    font-weight: bold;
+}
+
+.catalog__rest{
+    color: red;
+    font-size: 0.8rem ;
+}
+
+.catalog__brand{
+    font-size: 0.8rem ;
+}
+
+.catalog__brand i{
+    color: green;
+}
+
+.catalog_feedback{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.bi-star-fill{
+    color: rgb(255, 168, 0);
+}
+
+.catalog__review{
+    color: rgb(119, 117, 117);
+}
+
+.catalog__btn{
+    background-color: blue;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: bold;
+    transition: background 0.3s ease-in;
+}
+
+.catalog__btn:hover,
+.catalog__btn:focus,
+.catalog__btn:active{
+    background-color: rgb(78, 175, 255);
+}
+
+
+.img__wrapper{
+    position: relative;
+}
+
+.fav-btn{
+    color: grey;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.2s ease-in-out;
+}
+
+.fav-btn:hover,
+.fav-btn:focus,
+.fav-btn:active{
+    color: red;
+}
+
+.catalog__promotions{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.sales{
+    background-color: rgb(231, 83, 231);
+    padding: 3px 5pxs;
+    border-radius: 5px;
+    color: aliceblue;
 }
