@@ -1,31 +1,42 @@
+:root {
+    --main-color: black;
+    --bg-primery-btn: blue;
+    --color-magenta: red;
+    --color-price: green;
+
+    --font-size-prise-now: 1.5rem;
+    --font-size-brand: 0.8rem;
+}
+
+
 *,
 *::after,
-*::before{
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html,
-body{
+body {
     height: 100vh;
     min-height: 100vh;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     background-color: antiquewhite;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-html{
+html {
     font-size: 1em;
 }
 
 header,
-footer{
-    background-color: grey ;
+footer {
+    background-color: grey;
     min-height: 100px;
 }
 
@@ -33,128 +44,163 @@ main {
     flex-grow: 1;
 }
 
-.container{
+.container {
     max-width: 1800px;
     margin: 0 auto;
     position: relative;
     background-color: aqua;
 }
 
-@media (max-width:1800px){
-    .container{
+@media (max-width:1800px) {
+    .container {
         max-width: 1600px;
     }
 }
-@media (max-width:1600px){
-    .container{
+
+@media (max-width:1600px) {
+    .container {
         max-width: 1200px;
     }
 }
-@media (max-width:1200px){
-    .container{
-        max-width: 992spx;
+
+@media (max-width:1200px) {
+    .container {
+        max-width: 992px;
     }
 }
 
-/*----------------------------------*/
-.catalog{
+/*----------------Карточка товара------------------*/
+.catalog {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-.catalog__filter{
+
+.catalog__filter {
     width: 180px;
     background-color: blue;
+    flex-shrink: 0;
 }
 
 
-.catalog__sort{
+.catalog__sort {
     background-color: blue;
-min-height: 40px;
+    min-height: 40px;
 }
 
-.catalog__content{
+.catalog__content {
     flex-grow: 1;
 }
 
-.catalog__grid{
+.catalog__grid {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap:20px
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px
 }
 
+@media (max-width:1440px) {
+    .catalog__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
+@media (max-width:992px) {
+    .catalog__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:768px) {
+    .catalog__filter {
+        display: none;
+    }
+
+    .catalog__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:576px) {
+    .catalog__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 /*-----------------------карточка товара-------------------------------*/
 
-.catalog__card{
-    
+.catalog__card {
+
     width: 100%;
-    
+    display: flex;
+    flex-direction: column;
 }
 
-.catalog__img{
+.catalog__img {
     width: 100%;
     border-radius: 20px;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
-.catalog__price{
+.catalog__price {
     display: flex;
     flex-direction: row;
     align-items: baseline;
 }
 
-.price__now{
-    color: green;
+.price__now {
+    color: var(--color-price);
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: var(--font-size-prise-now);
     margin-right: 10px;
 }
 
-.price__early{
+.price__early {
     color: grey;
     text-decoration: line-through;
     margin-right: 10px;
     font-weight: bold;
 }
 
-.price__sale{
+.price__sale {
     color: red;
     font-weight: bold;
 }
 
-.catalog__rest{
+.catalog__rest {
     color: red;
-    font-size: 0.8rem ;
+    font-size: 0.8rem;
 }
 
-.catalog__brand{
-    font-size: 0.8rem ;
+.catalog__brand {
+    font-size: 0.8rem;
 }
 
-.catalog__brand i{
+.catalog__brand i {
     color: green;
 }
 
-.catalog_feedback{
+.catalog_feedback {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.8rem;
+    flex-grow: 1;
 }
 
-.bi-star-fill{
+.bi-star-fill {
     color: rgb(255, 168, 0);
 }
 
-.catalog__review{
+.catalog__review {
     color: rgb(119, 117, 117);
 }
 
-.catalog__btn{
+.catalog__btn {
     background-color: blue;
+    position: relative;
     width: 100%;
     padding: 10px;
     border: none;
@@ -164,18 +210,27 @@ min-height: 40px;
     transition: background 0.3s ease-in;
 }
 
+.catalog__btn::after {
+    content: "\F7AE";
+    font-family: "bootstrap-icons";
+    color: rgb(255, 0, 0);
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+}
+
 .catalog__btn:hover,
 .catalog__btn:focus,
-.catalog__btn:active{
+.catalog__btn:active {
     background-color: rgb(78, 175, 255);
 }
 
 
-.img__wrapper{
+.img__wrapper {
     position: relative;
 }
 
-.fav-btn{
+.fav-btn {
     color: grey;
     position: absolute;
     top: 15px;
@@ -185,19 +240,44 @@ min-height: 40px;
 
 .fav-btn:hover,
 .fav-btn:focus,
-.fav-btn:active{
+.fav-btn:active {
     color: red;
 }
 
-.catalog__promotions{
+.catalog__promotions {
     position: absolute;
     bottom: 15px;
     left: 15px;
 }
 
-.sales{
+.sales {
     background-color: rgb(231, 83, 231);
     padding: 3px 5pxs;
     border-radius: 5px;
     color: aliceblue;
+}
+
+
+.catalog__title {
+    font-size: clamp(0.8rem, 1rem, 1.5rem  );
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.catalog__title:hover,
+.catalog__title:focus {
+    color: blue;
+}
+
+
+
+
+h1{
+    font-size: calc(80px/2);
+
 }
